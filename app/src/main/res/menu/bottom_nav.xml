@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/popularMoviesFragment"
+        android:title="Popular"
+        />
+    <item
+        android:id="@+id/nowPlayingMoviesFragment"
+        android:title="NowPlaying"
+        />
+    <item
+        android:id="@+id/favourtiesFragment"
+        android:title="Favourites" />
+
+</menu>
