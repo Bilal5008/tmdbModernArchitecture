@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/popularMoviesFragment"
-        android:name="com.raiztech.tmdbreiztech.dashboard.dashboardfragment.PopularMoviesFragment"
+        android:name="com.structure.tmdb.dashboard.dashboardfragment.PopularMoviesFragment"
         android:label="fragment_popular_movies"
         tools:layout="@layout/fragment_popular_movies" />
     <fragment
         android:id="@+id/nowPlayingMoviesFragment"
-        android:name="com.raiztech.tmdbreiztech.dashboard.dashboardfragment.NowPlayingMoviesFragment"
+        android:name="com.structure.tmdb.dashboard.dashboardfragment.NowPlayingMoviesFragment"
         android:label="fragment_now_playing_movies"
         tools:layout="@layout/fragment_now_playing_movies" />
     <fragment
         android:id="@+id/favourtiesFragment"
-        android:name="com.raiztech.tmdbreiztech.dashboard.dashboardfragment.FavourtiesFragment"
+        android:name="com.structure.tmdb.dashboard.dashboardfragment.FavourtiesFragment"
         android:label="fragment_favourties"
         tools:layout="@layout/fragment_favourties" />
 </navigation>

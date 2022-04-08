@@ -26,17 +26,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
     }
 }
 
 dependencies {
 
-    def lifecycle_version = "2.5.0-alpha04"
+    def lifecycle_version = '2.5.0-alpha05'
     def nav_version = "2.5.0-alpha03"
     def retrofit_version = "2.9.0"
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -53,13 +53,28 @@ dependencies {
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
     // Hilt dependency injection
-    implementation("com.google.dagger:hilt-android:2.40.5")
-    kapt("com.google.dagger:hilt-android-compiler:2.40.5")
+    implementation('com.google.dagger:hilt-android:2.41')
+    kapt('com.google.dagger:hilt-android-compiler:2.41')
     // Json
-    implementation 'com.google.code.gson:gson:2.8.8'
+    implementation 'com.google.code.gson:gson:2.9.0'
     // Retrofit
 
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    // For Robolectric tests.
+    testImplementation("com.google.dagger:hilt-android-testing:2.37")
+    // ...with Kotlin.
+    kaptTest("com.google.dagger:hilt-android-compiler:2.41")
+    // ...with Java.
+    testAnnotationProcessor("com.google.dagger:hilt-android-compiler:2.41")
+
+
+    // For instrumented tests.
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.37")
+    // ...with Kotlin.
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.41")
+    // ...with Java.
+    androidTestAnnotationProcessor("com.google.dagger:hilt-android-compiler:2.41")
 
 }
