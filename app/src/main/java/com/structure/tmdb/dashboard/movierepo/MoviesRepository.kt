@@ -1,8 +1,9 @@
 package com.structure.tmdb.dashboard.dashboardrepo
 
+import android.util.Log
 import com.structure.tmdb.base.networking.ApiResult
-import com.structure.tmdb.dashboard.dashboarddatasource.MoviesDataSource
-import com.structure.tmdb.dashboard.dashboardmodels.MovieListInfoResult
+import com.structure.tmdb.dashboard.moviedatasources.MoviesDataSource
+import com.structure.tmdb.dashboard.moviemodels.MovieListInfoResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,6 +32,13 @@ class MoviesRepositoryImpl @Inject constructor(private val moviesDataSource: Mov
                         getMovieResultInternal(filter).emit(
                             MovieListInfoResult.Error(errorMessage = result.message)
                         )
+                    }
+                    is ApiResult.Loading -> {
+                        Log.v("APICALL", "Loading in MovieRepo")
+                        getMovieResultInternal(filter).emit(
+                            MovieListInfoResult.Loading
+                        )
+
                     }
                 }
             }

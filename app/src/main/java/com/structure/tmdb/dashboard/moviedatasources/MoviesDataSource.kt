@@ -9,6 +9,7 @@ import javax.inject.Inject
 
 interface MoviesDataSource {
     suspend fun getMovieList(filter: String): ApiResult<MovieListItems>
+    suspend fun getMovieDetails() : ApiResult<Movie>
 }
 
 class MoviesDataSourceImpl @Inject constructor(private val service: ApiService) : MoviesDataSource , BaseDataSource() {

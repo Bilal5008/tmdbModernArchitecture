@@ -3,7 +3,7 @@ package com.structure.tmdb.dashboard.dashboardviewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.structure.tmdb.base.Filter
-import com.structure.tmdb.dashboard.dashboardmodels.MovieListInfoUIResult
+import com.structure.tmdb.dashboard.moviemodels.MovieListInfoUIResult
 import com.structure.tmdb.dashboard.moviesusecase.FetchPopularMoviesUseCase
 import com.structure.tmdb.dashboard.moviesusecase.GetPopularMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

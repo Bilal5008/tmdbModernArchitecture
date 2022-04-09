@@ -1,6 +1,7 @@
 package com.structure.tmdb.dashboard.dashboardfragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +11,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.structure.tmdb.R
-import com.structure.tmdb.dashboard.dashboardmodels.MovieListInfoUIResult
 import com.structure.tmdb.dashboard.dashboardviewmodel.PopularMoviesFragmentViewModel
+import com.structure.tmdb.dashboard.moviemodels.MovieListInfoUIResult
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -46,12 +47,16 @@ class PopularMoviesFragment : Fragment() {
                 viewModel.getMovieResultFlow().collectLatest { result ->
                     when (result) {
 
-                        is MovieListInfoUIResult.Success -> setUi { println("Data Before filtering ${result.data}") }
+                        is MovieListInfoUIResult.Success -> setUi {
+                            Log.v("APICALL", "Data Before filtering ${result.data}")
+                            println("Data Before filtering ${result.data}") }
                         is MovieListInfoUIResult.Error -> {
 
                         }
-
-                        else -> {}
+                        else -> {
+                            Log.v("APICALL", "Loading in Fragment")
+                            MovieListInfoUIResult.Loading
+                        }
                     }
                 }
             }
